@@ -1,18 +1,14 @@
 package ru.netology;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game {
 
+    HashMap<Integer, Integer> players = new HashMap<>();
 
-    ArrayList<Player> players = new ArrayList<>();
-
-//    public ArrayList<Player> getPlayers() {
-//        return players;
-//    }
 
     public void register (Player player) {
-        players.add(player);
+        players.put(player.id, player.strength);
     }
 
     public int round (Player playerName1, Player playerName2) {
@@ -35,10 +31,11 @@ public class Game {
         return 0;
     }
 
-    public Player findById(int id) {
-        for (Player player : players) {
-            if (player.getId() == id) {
-                return player;
+    public Integer findById(int id) {
+        for (Integer key : players.keySet()) {
+            Integer value = players.get(key);
+            if (key == id) {
+                return value;
             }
         }
         return null;
