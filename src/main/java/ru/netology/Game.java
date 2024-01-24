@@ -7,9 +7,9 @@ public class Game {
 
     ArrayList<Player> players = new ArrayList<>();
 
-//    public ArrayList<Player> getPlayers() {
-//        return players;
-//    }
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
 
     public void register (Player player) {
         players.add(player);

@@ -79,17 +79,20 @@ public class GameTest {
     }
 
 
-//    @Test
-//    public void shouldRegisterPlayers() {
-//        Game game = new Game();
-//
-//        game.register(player1);
-//        game.register(player2);
-//        game.register(player3);
-//
-//        ArrayList<Player> expected = new ArrayList<>(Arrays.asList(player1, player2, player3));
-//        ArrayList<Player> actual = game.getPlayers();
-//
-//        Assertions.assertArrayEquals(expected, actual);
-//    }
+    @Test
+    public void shouldRegisterPlayers() {
+        Game game = new Game();
+
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+
+        ArrayList<Player> expected = new ArrayList<>();
+        expected.add(player1);
+        expected.add(player2);
+        expected.add(player3);
+        ArrayList<Player> actual = game.getPlayers();
+
+        Assertions.assertIterableEquals(expected, actual);
+    }
 }
