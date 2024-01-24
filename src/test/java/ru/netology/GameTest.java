@@ -80,17 +80,21 @@ public class GameTest {
     }
 
 
-//    @Test
-//    public void shouldRegisterPlayers() {
-//        Game game = new Game();
-//
-//        game.register(player1);
-//        game.register(player2);
-//        game.register(player3);
-//
-//        HashMap<Integer, Integer> expected = {1=14, 2=11, 3=14};
-//        HashMap<Integer, Integer> actual = game.getPlayers();
-//
-//        Assertions.assertArrayEquals(expected, actual);
-//    }
+    @Test
+    public void shouldRegisterPlayers() {
+        Game game = new Game();
+
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+
+        HashMap<Integer, Integer> expected = new HashMap<>();
+        expected.put(player1.id, player1.strength);
+        expected.put(player2.id, player2.strength);
+        expected.put(player3.id, player3.strength);
+
+        HashMap<Integer, Integer> actual = game.getPlayers();
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
