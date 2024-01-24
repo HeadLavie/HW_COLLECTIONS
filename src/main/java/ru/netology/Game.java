@@ -1,46 +1,39 @@
 package ru.netology;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import ru.netology.Player;
 
 public class Game {
 
+    HashMap<Integer, Integer> players = new HashMap<>();
 
-    ArrayList<Player> players = new ArrayList<>();
-
-//    public ArrayList<Player> getPlayers() {
-//        return players;
-//    }
+    public HashMap<Integer, Integer> getPlayers() {
+        return players;
+    }
 
     public void register (Player player) {
-        players.add(player);
+        players.put(player.id, player.strength);
     }
 
     public int round (Player playerName1, Player playerName2) {
 
-        if (findById(playerName1.getId()) == null) {
+        if (players.get(playerName1.id) == null) {
             throw new NotRegisteredException(
                     "Element with id: " + playerName1.getId() + " not found"
             );
-        } else if (findById(playerName2.getId()) == null) {
+        } else if (players.get(playerName2.id) == null) {
             throw new NotRegisteredException(
                     "Element with id: " + playerName2.getId() + " not found"
             );
         }
 
-        if (playerName1.getStrength() > playerName2.getStrength())
+        if (playerName1.getStrength() > playerName2.getStrength()) {
             return 1;
-        else if (playerName2.getStrength() > playerName1.getStrength())
+        } else if (playerName2.getStrength() > playerName1.getStrength()) {
             return 2;
-        else
-        return 0;
+        } else {
+            return 0;
+        }
     }
 
-    public Player findById(int id) {
-        for (Player player : players) {
-            if (player.getId() == id) {
-                return player;
-            }
-        }
-        return null;
-    }
 }
