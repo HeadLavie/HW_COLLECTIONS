@@ -27,12 +27,13 @@ public class Game {
             );
         }
 
-        if (playerName1.getStrength() > playerName2.getStrength())
+        if (playerName1.getStrength() > playerName2.getStrength()) {
             return 1;
-        else if (playerName2.getStrength() > playerName1.getStrength())
+        } else if (playerName2.getStrength() > playerName1.getStrength()) {
             return 2;
-        else
-        return 0;
+        } else {
+            return 0;
+        }
     }
 
     public Player findById(int id) {
